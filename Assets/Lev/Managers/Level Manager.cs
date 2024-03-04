@@ -17,11 +17,13 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        while (numEnemiesSpawned < enemySpawnLimit && currentEnemyWeight < maxEnemyWeight)
+        while (numEnemiesSpawned <= enemySpawnLimit && currentEnemyWeight < maxEnemyWeight)
         {
-            GameObject enemy = enemyOptions[Random.Range(0, enemyOptions.Length)];
+            int enemySpawned = Random.Range(0, enemyOptions.Length);
+            spawnedEnemies[numEnemiesSpawned] = Instantiate(enemyOptions[enemySpawned]);
             numEnemiesSpawned++;
-            MonoBehaviour enemyScript = enemy.GetComponent<MonoBehaviour>();
+            EnemyScript script = spawnedEnemies[numEnemiesSpawned].GetComponent<EnemyScript>();
+            currentEnemyWeight += script.weight;
         }
     }
 }

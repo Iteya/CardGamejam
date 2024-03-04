@@ -152,9 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec309bf085a645cca739cf3be1696ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnLimit: 0
-  maxEnemyWeight: 0
-  enemyOptions: []
+  enemySpawnLimit: 4
+  maxEnemyWeight: 1
+  enemyOptions:
+  - {fileID: 2144784782160199685, guid: 3454c5c5c0a724a0fbee8f5420e246b1, type: 3}
   numEnemiesSpawned: 0
   currentEnemyWeight: 0
   spawnedEnemies: []
