@@ -9,16 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c45b16ff40bcf45a4be3b414f18c95c7, type: 3}
+  m_Script: {fileID: 11500000, guid: e8733329e0a0946b1b6264e2a94427cf, type: 3}
   m_Name: Card
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  cardName: 
-  description: 
-  sManaCost: 
-  sDamage: 
-  isPoison: 0
-  isFire: 0
-  manaCost: 0
-  damage: 0
+  description: A long and winding description, definetly not flavor text!
+  cardName: A card!
+  type: 0
+  manaCost: 1
+  damage: 3
   upgrade: {fileID: 0}
