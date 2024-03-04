@@ -15,7 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   description: A long and winding description, definetly not flavor text!
   cardName: A card!
-  type: 0
+  type: 1
   manaCost: 1
   damage: 3
   upgrade: {fileID: 0}

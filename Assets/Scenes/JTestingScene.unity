@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &393412485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6871931493272110005, guid: 8d90aada084c14c059d6489839678139, type: 3}
+  m_PrefabInstance: {fileID: 614470359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &614470359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6062816649576838803, guid: 8d90aada084c14c059d6489839678139, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 153.5237
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6062816649576838803, guid: 8d90aada084c14c059d6489839678139, type: 3}
       propertyPath: m_LocalPosition.x
@@ -215,6 +226,14 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: 0a5a0331d60b74a10b2a9f36ae9ebb04, type: 2}
+    - target: {fileID: 7564875534918558844, guid: 8d90aada084c14c059d6489839678139, type: 3}
+      propertyPath: glow
+      value: 
+      objectReference: {fileID: 393412485}
+    - target: {fileID: 7564875534918558844, guid: 8d90aada084c14c059d6489839678139, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 1141790260}
     - target: {fileID: 8794994643435272495, guid: 8d90aada084c14c059d6489839678139, type: 3}
       propertyPath: m_Name
       value: Cardfab
@@ -419,6 +438,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1067685305 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7623717172274267651, guid: 8d90aada084c14c059d6489839678139, type: 3}
+  m_PrefabInstance: {fileID: 2812042213364695536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1141790260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7623717172274267651, guid: 8d90aada084c14c059d6489839678139, type: 3}
+  m_PrefabInstance: {fileID: 614470359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1171056513 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6062816649576838803, guid: 8d90aada084c14c059d6489839678139, type: 3}
@@ -505,6 +546,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1064696575}
     m_Modifications:
+    - target: {fileID: 5993572435691039687, guid: 8d90aada084c14c059d6489839678139, type: 3}
+      propertyPath: m_Color.b
+      value: 0.68378425
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993572435691039687, guid: 8d90aada084c14c059d6489839678139, type: 3}
+      propertyPath: m_Color.g
+      value: 0.68378425
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993572435691039687, guid: 8d90aada084c14c059d6489839678139, type: 3}
+      propertyPath: m_Color.r
+      value: 0.735849
+      objectReference: {fileID: 0}
     - target: {fileID: 6062816649576838803, guid: 8d90aada084c14c059d6489839678139, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -535,7 +588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6062816649576838803, guid: 8d90aada084c14c059d6489839678139, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 153.5237
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6062816649576838803, guid: 8d90aada084c14c059d6489839678139, type: 3}
       propertyPath: m_LocalPosition.x
@@ -589,6 +642,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: 2938e079d151843eeb250f9b9b4dd4da, type: 2}
+    - target: {fileID: 7564875534918558844, guid: 8d90aada084c14c059d6489839678139, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 1067685305}
     - target: {fileID: 8794994643435272495, guid: 8d90aada084c14c059d6489839678139, type: 3}
       propertyPath: m_Name
       value: Card
