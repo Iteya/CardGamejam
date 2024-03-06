@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
@@ -11,6 +12,8 @@ public class Card : MonoBehaviour
     public CardBase data;
     public TextMeshProUGUI tCardName, tManaCost, tDamage, tDescription;
     public Image image, glow;
+    public Card self;
+    public Deck singleton;
 
     void Update()
     {
@@ -33,17 +36,22 @@ public class Card : MonoBehaviour
         #endregion
         
         //TODO make card selectable;
-        if (Input.mousePosition.x > transform.position.x - 50 && Input.mousePosition.x < transform.position.x + 50)
+        if ((Input.mousePosition.x > transform.position.x - 50 && Input.mousePosition.x < transform.position.x + 50) && (Input.mousePosition.y > transform.position.y - 75 && Input.mousePosition.y < transform.position.y + 75))
         {
-            glow.color = new Color(1, 1, 0, 1);
+            if (Input.GetMouseButtonDown(0))
+            {
+                glow.color = new Color(1, 1, 0, 1);
+                Debug.Log("clicked!");
+                singleton.selectedCard = self;
+            }
         }
         else
         {
-            glow.color = new Color(0, 0, 0, 0);
+            if (Input.GetMouseButtonDown(0))
+            {
+                glow.color = new Color(0, 0, 0, 0);
+            }
         }
-
-
-        Debug.Log(transform.position.x);
-        Debug.Log(Input.mousePosition.x);
+        
     }
 }
