@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b15dd8637734f3a9422dedf458b0dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: b2e52c60fc1f942eaa25374e95393dc0, type: 2}
+  weight: 0
 --- !u!114 &8529851259639789875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,5 +112,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456653f27494b4bceb87819f783b718c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: b2e52c60fc1f942eaa25374e95393dc0, type: 2}
-  weight: 0

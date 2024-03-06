@@ -6,7 +6,7 @@ public class EnemyScript : MonoBehaviour
 {
     public EnemyData data;
 
-    [HideInInspector] public float weight;
+    public float weight;
 
     private void Awake()
     {

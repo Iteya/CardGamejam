@@ -7,22 +7,25 @@ using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
 {
+    public Transform[] spawnPositions;
+    
     public int enemySpawnLimit;
     public float maxEnemyWeight;
     public GameObject[] enemyOptions;
     
-    public int numEnemiesSpawned;
+    public int numEnemiesSpawned = 0;
     public float currentEnemyWeight;
-    public GameObject[] spawnedEnemies;
+    public List<GameObject> enemiesSpawned = new List<GameObject>();
 
     private void Start()
     {
-        while (numEnemiesSpawned <= enemySpawnLimit && currentEnemyWeight < maxEnemyWeight)
+        while (numEnemiesSpawned < enemySpawnLimit && currentEnemyWeight < maxEnemyWeight)
         {
-            int enemySpawned = Random.Range(0, enemyOptions.Length);
-            spawnedEnemies[numEnemiesSpawned] = Instantiate(enemyOptions[enemySpawned]);
+            int enemySpawned = Random.Range(0, enemyOptions.Length - 1);
+            GameObject enemy = Instantiate(enemyOptions[enemySpawned], spawnPositions[numEnemiesSpawned]);
+            enemiesSpawned.Add(enemy);
             numEnemiesSpawned++;
-            EnemyScript script = spawnedEnemies[numEnemiesSpawned].GetComponent<EnemyScript>();
+            EnemyScript script = enemy.GetComponent<EnemyScript>();
             currentEnemyWeight += script.weight;
         }
     }

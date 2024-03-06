@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevGameManager : MonoBehaviour
+public class LevelSelectorScript : MonoBehaviour
 {
-    public int currentFloor;
+    
 }
