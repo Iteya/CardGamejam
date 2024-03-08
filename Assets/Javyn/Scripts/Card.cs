@@ -42,7 +42,7 @@ public class Card : MonoBehaviour
             {
                 glow.color = new Color(1, 1, 0, 1);
                 Debug.Log("clicked!");
-                singleton.selectedCard = self;
+                //singleton.selectedCard = self;
             }
         }
         else
