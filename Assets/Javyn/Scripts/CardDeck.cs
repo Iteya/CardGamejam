@@ -18,7 +18,7 @@ public class CardDeck : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                DrawCard(data.cards);
+                //DrawCard(data.cards);
             }
         }
     }

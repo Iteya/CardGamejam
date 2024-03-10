@@ -9,9 +9,9 @@ public class Deck : MonoBehaviour
 {
     public static Deck singleton;
 
-    public Card selectedCard;
-    public List<CardBase> cards;
-    public List<CardBase> cardToAppend;
+    public List<CardBase> deck;
+    public List<CardBase> drawPile;
+    public List<Card> cards;
     
     void awake()
     {
@@ -37,13 +37,25 @@ public class Deck : MonoBehaviour
         //Add a new card to the deck:
         if (Input.GetKeyDown(KeyCode.A))
         {
-            cards.Add(cardToAppend[Random.Range(0, cardToAppend.Count)]);
+            deck.Add(drawPile[Random.Range(0, drawPile.Count)]);
         }
         
         //Shuffle the deck:
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Shuffle(cards);
+            Shuffle(deck);
+        }
+        
+        //Draw a card:
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            DrawCard();
+        }
+        
+        //Delete/discard Debug:
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Discard();
         }
     }
     
@@ -54,6 +66,32 @@ public class Deck : MonoBehaviour
             int a = Random.Range(0, list.Count);
             int b = Random.Range(0, list.Count);
             (list[a], list[b]) = (list[b], list[a]);
+        }
+    }
+
+    private void DrawCard()
+    {
+        for (int i = 0; i < cards.Count; i++)
+        {
+            if (cards[i].data == null)
+            {
+                cards[i].data = deck[0];
+                deck.RemoveAt(0);
+                return;
+            }
+        }
+    }
+
+    private void Discard()
+    {
+        for (int i = 0; i < cards.Count; i++)
+        {
+            Debug.Log(i);
+            if (cards[i].selected)
+            {
+                cards[i].data = null;
+                return;
+            }
         }
     }
 }

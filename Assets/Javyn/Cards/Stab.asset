@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8733329e0a0946b1b6264e2a94427cf, type: 3}
+  m_Name: Stab
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  description: Stab the opponent dealing 6 damage
+  cardName: Stab
+  type: 0
+  manaCost: 1
+  damage: 6
+  upgrade: {fileID: 11400000, guid: 2c11534291850eb4a97bc797b433b609, type: 2}
