@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour
     {
         while (numEnemiesSpawned < enemySpawnLimit && currentEnemyWeight < maxEnemyWeight)
         {
-            int enemySpawned = Random.Range(0, enemyOptions.Length - 1);
+            int enemySpawned = Random.Range(0, enemyOptions.Length);
             GameObject enemy = Instantiate(enemyOptions[enemySpawned], spawnPositions[numEnemiesSpawned]);
             enemiesSpawned.Add(enemy);
             numEnemiesSpawned++;
