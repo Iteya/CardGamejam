@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,6 +9,9 @@ using Random = UnityEngine.Random;
 public class Deck : MonoBehaviour
 {
     public static Deck singleton;
+
+    public Card selected;
+    public EnemyScript enemy;
 
     public List<CardBase> deck;
     public List<CardBase> drawPile;
@@ -55,7 +59,7 @@ public class Deck : MonoBehaviour
         //Delete/discard Debug:
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Discard();
+            DamageEnemy();
         }
     }
     
@@ -84,14 +88,16 @@ public class Deck : MonoBehaviour
 
     private void Discard()
     {
-        for (int i = 0; i < cards.Count; i++)
+        selected.data = null;
+        selected = null;
+    }
+
+    private void DamageEnemy()
+    {
+        if (enemy != null && selected != null)
         {
-            Debug.Log(i);
-            if (cards[i].selected)
-            {
-                cards[i].data = null;
-                return;
-            }
+            enemy.health -= selected.damage;
+            Discard();
         }
     }
 }

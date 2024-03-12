@@ -12,10 +12,8 @@ public class Card : MonoBehaviour
     public CardBase data;
     public TextMeshProUGUI tCardName, tManaCost, tDamage, tDescription;
     public Image image, glow;
-    public Card self;
     public Deck singleton;
-    public int why;
-    public bool selected;
+    public int why, damage, manaCost;
 
     void Start()
     {
@@ -28,6 +26,8 @@ public class Card : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, why, transform.position.z);
             gameObject.SetActive(true);
+            damage = data.damage;
+            manaCost = data.manaCost;
             #region CardData
 
             tCardName.text = data.cardName;
@@ -60,18 +60,17 @@ public class Card : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                glow.color = new Color(1, 1, 0, 1);
-                selected = true;
+                singleton.selected = this;
             }
+        }
+
+        if (singleton.selected == this)
+        {
+            glow.color = new Color(1, 1, 0, 1);
         }
         else
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                glow.color = new Color(0, 0, 0, 0);
-                selected = false;
-            }
+            glow.color = new Color(0, 0, 0, 0);
         }
-        
     }
 }
