@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        maxEnemyWeight = ButtonSelectorScript.SelectedLevelWeight;
         while (numEnemiesSpawned < enemySpawnLimit && currentEnemyWeight < maxEnemyWeight)
         {
             int enemySpawned = Random.Range(0, enemyOptions.Length);
