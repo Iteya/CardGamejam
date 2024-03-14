@@ -1303,7 +1303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1220255736}
-  - component: {fileID: 1220255735}
+  - component: {fileID: 1220255737}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -1311,31 +1311,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1220255735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220255734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fec309bf085a645cca739cf3be1696ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPositions:
-  - {fileID: 2016789654}
-  - {fileID: 1901100042}
-  - {fileID: 2037644365}
-  - {fileID: 2071548430}
-  enemySpawnLimit: 4
-  maxEnemyWeight: 1
-  enemyOptions:
-  - {fileID: 2144784782160199685, guid: 3454c5c5c0a724a0fbee8f5420e246b1, type: 3}
-  - {fileID: 2144784782160199685, guid: aa8cbfabba9cc407f8afb7f7f5e0cae5, type: 3}
-  numEnemiesSpawned: 0
-  currentEnemyWeight: 0
-  enemiesSpawned: []
 --- !u!4 &1220255736
 Transform:
   m_ObjectHideFlags: 0
@@ -1351,6 +1326,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220255737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220255734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e901413341e4748a98f95ddcb5663fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPositions:
+  - {fileID: 2016789654}
+  - {fileID: 1901100042}
+  - {fileID: 2037644365}
+  - {fileID: 2071548430}
+  enemySpawnLimit: 4
+  maxEnemyWeight: 1
+  enemyOptions:
+  - {fileID: 2144784782160199685, guid: aa8cbfabba9cc407f8afb7f7f5e0cae5, type: 3}
+  - {fileID: 2144784782160199685, guid: 3454c5c5c0a724a0fbee8f5420e246b1, type: 3}
+  numEnemiesSpawned: 0
+  currentEnemyWeight: 0
+  enemiesSpawned: []
 --- !u!1001 &1438151603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2052,5 +2052,5 @@ SceneRoots:
   - {fileID: 1220255736}
   - {fileID: 1851994318}
   - {fileID: 1851644716}
-  - {fileID: 749142852}
   - {fileID: 882658299}
+  - {fileID: 749142852}

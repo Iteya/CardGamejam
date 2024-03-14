@@ -13,7 +13,7 @@ public class Deck : MonoBehaviour
     public Card selected;
     public EnemyScript enemy;
 
-    public List<CardBase> deck;
+    public List<CardBase> deck, discard;
     public List<CardBase> drawPile;
     public List<Card> cards;
     
@@ -32,16 +32,26 @@ public class Deck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Add starting cards
+        for (int i = 0; i < 10; i++)
+        {
+            deck.Add(drawPile[Random.Range(0, drawPile.Count)]);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Add a new card to the deck:
-        if (Input.GetKeyDown(KeyCode.A))
+        if (deck.Count == 0)
         {
-            deck.Add(drawPile[Random.Range(0, drawPile.Count)]);
+            Draw();
+            Shuffle(deck);
+        }
+        
+        //Discard
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Discard();
         }
         
         //Shuffle the deck:
@@ -88,6 +98,7 @@ public class Deck : MonoBehaviour
 
     private void Discard()
     {
+        discard.Add(selected.data);
         selected.data = null;
         selected = null;
     }
@@ -97,7 +108,13 @@ public class Deck : MonoBehaviour
         if (enemy != null && selected != null)
         {
             enemy.health -= selected.damage;
+            Debug.Log("damaged!");
             Discard();
         }
+    }
+
+    private void Draw()
+    {
+        deck.AddRange(discard);
     }
 }

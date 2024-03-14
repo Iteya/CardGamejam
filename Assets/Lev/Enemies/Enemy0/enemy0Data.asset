@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a656f0f39b642fc9f77e94338d2e31, type: 3}
   m_Name: Enemy0Data
   m_EditorClassIdentifier: 
-  health: 5
+  health: 12
   spawnWeight: 0.25
   damageChoices: 
   defenseChoices: 
   healingChoices: 
+  color: {r: 0.6415094, g: 0.20879316, b: 0.20879316, a: 1}

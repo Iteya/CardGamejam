@@ -103,6 +103,7 @@ MonoBehaviour:
   singleton: {fileID: 0}
   weight: 0
   health: 0
+  _camera: {fileID: 0}
 --- !u!114 &8529851259639789875
 MonoBehaviour:
   m_ObjectHideFlags: 0

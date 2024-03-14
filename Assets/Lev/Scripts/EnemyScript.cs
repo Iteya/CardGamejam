@@ -8,17 +8,21 @@ public class EnemyScript : MonoBehaviour
     public SpriteRenderer sprite;
     public EnemyData data;
     public Deck singleton;
+    public J_LevelManager lev;
     public float weight, health;
     public Camera _camera;
 
     private void Awake()
     {
         weight = data.spawnWeight;
+        sprite.color = data.color;
     }
 
     private void Start()
     {
         _camera = FindObjectOfType<Camera>();
+        singleton = FindObjectOfType<Deck>();
+        lev = FindObjectOfType<J_LevelManager>();
         health = data.health;
     }
 
@@ -32,10 +36,23 @@ public class EnemyScript : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("hello!");
                 singleton.enemy = this;
-                sprite.color = Color.yellow;
             }
+        }
+
+        if (singleton.enemy == this)
+        {
+            sprite.color = Color.yellow;
+        }
+        else
+        {
+            sprite.color = data.color;
+        }
+
+        if (health <= 0)
+        {
+            lev.numEnemiesSpawned -= 1;
+            Destroy(this.gameObject);
         }
     }
 }
