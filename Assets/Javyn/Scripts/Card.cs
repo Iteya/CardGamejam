@@ -68,6 +68,7 @@ public class Card : MonoBehaviour
         {
             glow.color = new Color(1, 1, 0, 1);
         }
+
         else
         {
             glow.color = new Color(0, 0, 0, 0);

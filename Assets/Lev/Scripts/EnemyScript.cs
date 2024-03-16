@@ -38,6 +38,9 @@ public class EnemyScript : MonoBehaviour
             {
                 singleton.enemy = this;
             }
+        } else if (Input.GetMouseButtonDown(0) && singleton.enemy == this)
+        {
+            singleton.enemy = null;
         }
 
         if (singleton.enemy == this)
