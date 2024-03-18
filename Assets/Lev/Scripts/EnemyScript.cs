@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    public HealthBarScript healthBar;
+    
     public SpriteRenderer sprite;
     public EnemyData data;
     public Deck singleton;
-    public J_LevelManager lev;
-    public float weight, health;
-    public Camera _camera;
+    public J_LevelManager lev; // why my name here?
+    public float weight;
+    public int health;
+    public new Camera camera;
 
     private void Awake()
     {
@@ -20,7 +23,7 @@ public class EnemyScript : MonoBehaviour
 
     private void Start()
     {
-        _camera = FindObjectOfType<Camera>();
+        camera = FindObjectOfType<Camera>();
         singleton = FindObjectOfType<Deck>();
         lev = FindObjectOfType<J_LevelManager>();
         health = data.health;
@@ -28,10 +31,10 @@ public class EnemyScript : MonoBehaviour
 
     private void Update()
     {
-        if (   (_camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).x > transform.position.x - .5f)
-            && (_camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).x < transform.position.x + .5f)
-            && (_camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).y > transform.position.y - 1) 
-            && (_camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).y < transform.position.y + 1)
+        if (   (camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).x > transform.position.x - .5f)
+            && (camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).x < transform.position.x + .5f)
+            && (camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).y > transform.position.y - 1) 
+            && (camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).y < transform.position.y + 1)
             )
         {
             if (Input.GetMouseButtonDown(0))
@@ -58,4 +61,13 @@ public class EnemyScript : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    
+    void ChangeHealth(int amount)
+    {
+        health += amount;
+        
+        healthBar.SetHealth(health);
+    }
+    
+    
 }

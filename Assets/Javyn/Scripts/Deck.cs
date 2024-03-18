@@ -94,12 +94,6 @@ public class Deck : MonoBehaviour
     #endregion
     }
     
-    
-    
-    
-    
-    
-    
     private void Shuffle(List<CardBase> list) {
         for (int i = 0; i < list.Count; i++) {
             int a = Random.Range(0, list.Count);
@@ -147,8 +141,7 @@ public class Deck : MonoBehaviour
             discard.Clear();
         }
     }
-
-
+    
     public void EndTurn()
     {
         if (turn == turnAction.Player) {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum CardType
 {
@@ -21,4 +22,19 @@ public class CardBase : ScriptableObject
         
     public int manaCost, damage;
     public CardBase upgrade;
+
+    public void TypePoison(Button button)
+    {
+        //button.colors = new Color(0.561f, 0.737f, 0.561f);
+    }
+
+    public void TypeFire(Button button)
+    {
+        
+    }
+
+    public void TypeNormal(Button button)
+    {
+        
+    }
 }

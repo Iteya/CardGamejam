@@ -12,5 +12,5 @@ public class EnemyData : ScriptableObject
     public int[] defenseChoices; // deciding defence
     public int[] healingChoices; // deciding health (most enemies probably wont use this)
     public Color color;
-
+    public HealthBarScript healthBar;
 }

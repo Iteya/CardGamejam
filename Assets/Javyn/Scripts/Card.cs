@@ -4,14 +4,16 @@ using TMPro;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
 
 public class Card : MonoBehaviour
 {
     public CardBase data;
+    public Button button;
     public TextMeshProUGUI tCardName, tManaCost, tDamage, tDescription;
-    public Image image, glow;
+    //public Image image, glow;
     public Deck singleton;
     public int why, damage, manaCost;
 
@@ -37,15 +39,18 @@ public class Card : MonoBehaviour
 
             if (data.type == CardType.Poison)
             {
-                image.color = new Color(0.561f, 0.737f, 0.561f);
+                data.TypePoison(button);
+                //image.color = new Color(0.561f, 0.737f, 0.561f);
             }
             else if (data.type == CardType.Fire)
             {
-                image.color = new Color(1, 0.278f, 0.278f);
+                data.TypeFire(button);
+                //image.color = new Color(1, 0.278f, 0.278f);
             }
             else if (data.type == CardType.Normal)
             {
-                image.color = new Color(0.737f, 0.682f, 0.682f);
+                data.TypeNormal(button);
+                //image.color = new Color(0.737f, 0.682f, 0.682f);
             }
 
             #endregion
@@ -63,7 +68,8 @@ public class Card : MonoBehaviour
                 singleton.selected = this;
             }
         }
-
+        
+        /*
         if (singleton.selected == this)
         {
             glow.color = new Color(1, 1, 0, 1);
@@ -73,5 +79,6 @@ public class Card : MonoBehaviour
         {
             glow.color = new Color(0, 0, 0, 0);
         }
+        */
     }
 }
