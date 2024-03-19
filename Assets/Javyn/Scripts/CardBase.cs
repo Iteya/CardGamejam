@@ -23,18 +23,20 @@ public class CardBase : ScriptableObject
     public int manaCost, damage;
     public CardBase upgrade;
 
-    public void TypePoison(Button button)
-    {
-        //button.colors = new Color(0.561f, 0.737f, 0.561f);
-    }
-
-    public void TypeFire(Button button)
+    public void ChangeColorBasedOnType(Image image)
     {
         
-    }
-
-    public void TypeNormal(Button button)
-    {
-        
+        if (type == CardType.Poison)
+        {
+            image.color = new Color(0.561f, 0.737f, 0.561f);
+        }
+        else if (type == CardType.Fire)
+        {
+            image.color = new Color(1, 0.278f, 0.278f);
+        }
+        else if (type == CardType.Normal)
+        {
+            image.color = new Color(0.737f, 0.682f, 0.682f);
+        }
     }
 }

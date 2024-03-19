@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 0a5a0331d60b74a10b2a9f36ae9ebb04, type: 2}
-  button: {fileID: 0}
+  image: {fileID: 6986841838423967279}
   tCardName: {fileID: 533444501493913458}
   tManaCost: {fileID: 5381819370291090447}
   tDamage: {fileID: 8887901060229153088}
