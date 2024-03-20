@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -26,6 +27,8 @@ public class Deck : MonoBehaviour
 
     public List<EnemyScript> attackedEnemies;
     public List<CardBase> usedCards;
+
+    public Transform parent;
     
     void Awake() {
         if (singleton != null && singleton != this) {
@@ -44,6 +47,8 @@ public class Deck : MonoBehaviour
         }
 
         turn = turnAction.Player;
+
+        //Card cardToPlay = Instantiate(cards[0], new Vector3(transform.position.x, transform.position.y, 0), quaternion.identity, parent);
     }
 
     // Update is called once per frame

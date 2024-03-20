@@ -20,12 +20,14 @@ public class Card : MonoBehaviour
     void Start()
     {
         why = (int) transform.position.y;
+        Debug.Log("Start: " + why);
     }
     
     void Update()
     {
         if (data != null)
         {
+            Debug.Log("After: " + why);
             transform.position = new Vector3(transform.position.x, why, transform.position.z);
             gameObject.SetActive(true);
             damage = data.damage;
