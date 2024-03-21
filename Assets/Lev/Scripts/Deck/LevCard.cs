@@ -15,7 +15,7 @@ public class LevCard : MonoBehaviour
 
     private void Start()
     {
-        singleton = GetComponent<LevDeck>();
+        singleton = FindObjectOfType<LevDeck>();
         
         damage = data.damage;
         manaCost = data.manaCost;

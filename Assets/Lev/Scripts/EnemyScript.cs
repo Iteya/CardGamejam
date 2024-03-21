@@ -28,6 +28,8 @@ public class EnemyScript : MonoBehaviour
         lev = FindObjectOfType<J_LevelManager>();
         health = data.health;
     }
+    
+    /*
 
     private void Update()
     {
@@ -61,6 +63,8 @@ public class EnemyScript : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    
+    */
     
     void ChangeHealth(int amount)
     {
