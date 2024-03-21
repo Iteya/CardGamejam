@@ -23,6 +23,7 @@ public class EnemyScript : MonoBehaviour
 
     private void Start()
     {
+        healthBar.SetMaxHealth(health);
         camera = FindObjectOfType<Camera>();
         singleton = FindObjectOfType<LevDeck>();
         lev = FindObjectOfType<J_LevelManager>();
@@ -66,7 +67,7 @@ public class EnemyScript : MonoBehaviour
     
     
     
-    void ChangeHealth(int amount)
+    public void ChangeHealth(int amount)
     {
         health += amount;
         

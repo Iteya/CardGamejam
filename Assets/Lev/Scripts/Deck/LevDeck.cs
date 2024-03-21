@@ -76,7 +76,7 @@ public class LevDeck : MonoBehaviour
         {
             if (selectedCard != -1 && selectedEnemy != null)
             {
-                selectedEnemy.health -= hand[selectedCard].damage;
+                selectedEnemy.ChangeHealth(-hand[selectedCard].damage);
                 Destroy(hand[selectedCard].gameObject);
                 selectedEnemy = null;
             }
