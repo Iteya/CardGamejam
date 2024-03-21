@@ -21,9 +21,10 @@ public class LevDrawPile : MonoBehaviour
             data.deck.RemoveAt(0);
             
             cardScript.data = drawnCardData; // gives data to card
-            // #TODO FIX THIS WHEN CARDS ARE REMOVED FROM HAND (it will break lol)
-            cardScript.cardHandIndex = data.deckSize; // decides hand index of where it array
-            data.hand.Add(drawnCardData);
+            
+            //TODO FIX THIS WHEN CARDS ARE REMOVED FROM HAND (it will break lol)
+            cardScript.cardHandIndex = data.hand.Count; // decides hand index of where it array
+            data.hand.Add(cardScript);
         }
     }         
 } 

@@ -660,7 +660,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6986841838423967279}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3897865561211318400}
+        m_TargetAssemblyTypeName: LevCard, Assembly-CSharp
+        m_MethodName: CardSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3897865561211318400
 MonoBehaviour:
   m_ObjectHideFlags: 0

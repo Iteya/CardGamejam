@@ -15,16 +15,21 @@ public class LevDeck : MonoBehaviour
         Player,
         Enemy,
     }
+    
     public TurnAction currentTurn;
 
-    public List<CardBase> possibleCardsToAddToDeck;
-    public List<CardBase> deck;
+    public List<CardBase> possibleCardsToAddToDeck, deck;
+    
     public int deckSize;
+
     public List<CardBase> discard;
-    public List<CardBase> hand;
+    public List<LevCard> hand;
+    
     public int maxHandSize;
+    
     // keep track of current selected card via index
-    public int currentSelectedCard = -1; // if -1, stands for no card selected
+    public int selectedCard = -1; // if -1, stands for no card selected
+    public EnemyScript selectedEnemy;
 
     public Transform handParent;
 
@@ -56,11 +61,11 @@ public class LevDeck : MonoBehaviour
     {
         #region PlayerFunctionCalls
 
-        if (currentTurn == TurnAction.Player)
-        {
-            Damage();
-        }
-            
+            if (currentTurn == TurnAction.Player)
+            {
+                Damage();
+            }
+
 
         #endregion
     }
@@ -69,13 +74,13 @@ public class LevDeck : MonoBehaviour
 
         private void Damage()
         {
-            if (currentSelectedCard != -1)
+            if (selectedCard != -1 && selectedEnemy != null)
             {
-                
+                selectedEnemy.health -= hand[selectedCard].damage;
+                Destroy(hand[selectedCard].gameObject);
+                selectedEnemy = null;
             }
         }
-    
-
     #endregion
     
     

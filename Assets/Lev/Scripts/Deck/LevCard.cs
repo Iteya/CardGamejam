@@ -30,12 +30,18 @@ public class LevCard : MonoBehaviour
 
     public void CardSelected()
     {
-        singleton.currentSelectedCard = cardHandIndex;
+        singleton.selectedCard = cardHandIndex;
     }
 
     private void OnDestroy()
     {
-        singleton.currentSelectedCard = -1;
+        singleton.hand.RemoveAt(cardHandIndex);
+        singleton.discard.Add(data);
+        for (int i = cardHandIndex, len = singleton.hand.Count; i < len; i++)
+        {
+            singleton.hand[i].cardHandIndex -= 1;
+        }
+        singleton.selectedCard = -1;
     }
 }
 

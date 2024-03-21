@@ -685,6 +685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1220255736}
   - component: {fileID: 1220255735}
+  - component: {fileID: 1220255737}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -699,7 +700,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220255734}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fec309bf085a645cca739cf3be1696ab, type: 3}
   m_Name: 
@@ -731,6 +732,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220255737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220255734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e901413341e4748a98f95ddcb5663fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPositions:
+  - {fileID: 2016789654}
+  - {fileID: 1901100042}
+  - {fileID: 2037644365}
+  - {fileID: 2071548430}
+  enemySpawnLimit: 4
+  maxEnemyWeight: 1
+  enemyOptions:
+  - {fileID: 2144784782160199685, guid: 3454c5c5c0a724a0fbee8f5420e246b1, type: 3}
+  numEnemiesSpawned: 0
+  currentEnemyWeight: 0
+  enemiesSpawned: []
 --- !u!1 &1460610968
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +970,8 @@ MonoBehaviour:
   discard: []
   hand: []
   maxHandSize: 7
-  currentSelectedCard: -1
+  selectedCard: -1
+  selectedEnemy: {fileID: 0}
   handParent: {fileID: 111579931}
 --- !u!1 &1670885657
 GameObject:

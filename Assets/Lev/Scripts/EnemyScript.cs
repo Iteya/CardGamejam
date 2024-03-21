@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour
     
     public SpriteRenderer sprite;
     public EnemyData data;
-    public Deck singleton;
+    public LevDeck singleton;
     public J_LevelManager lev; // why my name here?
     public float weight;
     public int health;
@@ -24,12 +24,12 @@ public class EnemyScript : MonoBehaviour
     private void Start()
     {
         camera = FindObjectOfType<Camera>();
-        singleton = FindObjectOfType<Deck>();
+        singleton = FindObjectOfType<LevDeck>();
         lev = FindObjectOfType<J_LevelManager>();
         health = data.health;
     }
     
-    /*
+    
 
     private void Update()
     {
@@ -41,14 +41,14 @@ public class EnemyScript : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                singleton.enemy = this;
+                singleton.selectedEnemy = this;
             }
-        } else if (Input.GetMouseButtonDown(0) && singleton.enemy == this)
+        } else if (Input.GetMouseButtonDown(0) && singleton.selectedEnemy == this)
         {
-            singleton.enemy = null;
+            singleton.selectedEnemy = null;
         }
 
-        if (singleton.enemy == this)
+        if (singleton.selectedEnemy == this)
         {
             sprite.color = Color.yellow;
         }
@@ -64,7 +64,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
     
-    */
+    
     
     void ChangeHealth(int amount)
     {

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Wolf
   m_EditorClassIdentifier: 
   health: 12
-  spawnWeight: 0.446
+  spawnWeight: 0.369
   damageChoices: 
   defenseChoices: 
   healingChoices: 
   color: {r: 0.5283019, g: 0.41616234, b: 0.41616234, a: 1}
+  healthBar: {fileID: 0}
