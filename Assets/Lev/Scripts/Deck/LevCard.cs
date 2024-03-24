@@ -31,6 +31,7 @@ public class LevCard : MonoBehaviour
     public void CardSelected()
     {
         singleton.selectedCard = cardHandIndex;
+        
     }
 
     private void OnDestroy()

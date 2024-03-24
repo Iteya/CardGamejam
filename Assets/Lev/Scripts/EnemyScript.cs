@@ -23,11 +23,11 @@ public class EnemyScript : MonoBehaviour
 
     private void Start()
     {
+        health = data.health;
         healthBar.SetMaxHealth(health);
         camera = FindObjectOfType<Camera>();
         singleton = FindObjectOfType<LevDeck>();
         lev = FindObjectOfType<J_LevelManager>();
-        health = data.health;
     }
     
     
