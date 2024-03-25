@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void ChangeHealth(int amount)
+    public void ChangeHealth(int amount)
     {
         currentHealth += amount;
         

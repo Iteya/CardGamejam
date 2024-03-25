@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,14 +10,20 @@ public class LevHourglassScript : MonoBehaviour
     public LevDeck data;
     public int energy, max;
     public TextMeshProUGUI totalText, currentText;
+    public int enemies = 0;
 
     private void Update()
     {
         totalText.text = max.ToString();
         currentText.text = energy.ToString();
+        if (enemies == 0)
+        {
+            enemies = data.enemies;
+            data.chooseActions = enemies;
+        }
     }
     
-    public void EndTurn()
+    public void SwitchTurn()
     {
         // Checks to see if currentTurn is players turn, if it is, swaps it to Enemy turn
         // If it is not players turn, makes it players turn
@@ -24,4 +31,27 @@ public class LevHourglassScript : MonoBehaviour
             ? LevDeck.TurnAction.Enemy
             : LevDeck.TurnAction.Player;
     }
+
+    public void EndPlayerTurn()
+    {
+        if (data.currentTurn == LevDeck.TurnAction.Player)
+        {
+            Debug.Log("Enemy turn!");
+            SwitchTurn();
+            data.enemies = enemies;
+            data.startIEnumerator = enemies;
+        }
+    }
+
+    public void EndEnemyTurn()
+    {
+        if (data.currentTurn == LevDeck.TurnAction.Enemy)
+        {
+            SwitchTurn();
+            data.chooseActions = enemies;
+        }
+    }
+    
+    //I split the EndTurn function (now SwitchTurn) so that we can call it for each specific use case
+    //I.e. the hourglass itself will EndPlayerTurn, and EndEnemyTurn will be called by whatever handles enemy turn.
 }

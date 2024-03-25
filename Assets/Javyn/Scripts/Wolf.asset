@@ -14,8 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 12
   spawnWeight: 0.369
-  damageChoices: 
-  defenseChoices: 
-  healingChoices: 
+  ActionChoices:
+  - {fileID: 11400000, guid: 343728cf184523c4490c6b82f02b42f0, type: 2}
+  - {fileID: 11400000, guid: 50cca6c8e5133e64598596c01d638637, type: 2}
+  - {fileID: 11400000, guid: 2790bdcafff3bab4b82d1b6f687ac450, type: 2}
+  - {fileID: 11400000, guid: f6a37b4979bef0d478446d1daae38d55, type: 2}
+  - {fileID: 11400000, guid: 2c11534291850eb4a97bc797b433b609, type: 2}
+  - {fileID: 11400000, guid: 93868c72afe126f498e5c5a1020c97a7, type: 2}
+  - {fileID: 11400000, guid: 21221bf2012e0ff48bc898d178d4d5cb, type: 2}
+  - {fileID: 11400000, guid: 237bf9d075ca53e43ad4696963a98bd0, type: 2}
+  - {fileID: 11400000, guid: c544d30c4d24ec1498c3a59831799bad, type: 2}
+  - {fileID: 11400000, guid: 7a9be05c6d0bd9443a63b9a400e5c24b, type: 2}
   color: {r: 0.5283019, g: 0.41616234, b: 0.41616234, a: 1}
   healthBar: {fileID: 0}

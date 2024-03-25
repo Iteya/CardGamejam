@@ -100,13 +100,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1262299818566292551}
-  sprite: {fileID: 3691321290291464685}
   data: {fileID: 11400000, guid: 25f38844e5df547278671a8821776eaf, type: 2}
   singleton: {fileID: 0}
   lev: {fileID: 0}
+  camera: {fileID: 0}
+  sprite: {fileID: 3691321290291464685}
   weight: 0
   health: 0
-  camera: {fileID: 0}
+  energy: 3
+  actions: []
 --- !u!114 &8529851259639789875
 MonoBehaviour:
   m_ObjectHideFlags: 0

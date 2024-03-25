@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f31d3e373c644758aaee1947a71007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 50
   currentHealth: 0
   healthBar: {fileID: 569330989}
 --- !u!114 &751786209 stripped
@@ -753,6 +753,7 @@ MonoBehaviour:
   maxEnemyWeight: 1
   enemyOptions:
   - {fileID: 2144784782160199685, guid: 3454c5c5c0a724a0fbee8f5420e246b1, type: 3}
+  - {fileID: 2144784782160199685, guid: aa8cbfabba9cc407f8afb7f7f5e0cae5, type: 3}
   numEnemiesSpawned: 0
   currentEnemyWeight: 0
   enemiesSpawned: []
@@ -843,7 +844,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1460610974}
         m_TargetAssemblyTypeName: LevHourglassScript, Assembly-CSharp
-        m_MethodName: EndTurn
+        m_MethodName: EndPlayerTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -908,6 +909,7 @@ MonoBehaviour:
   max: 3
   totalText: {fileID: 850449405}
   currentText: {fileID: 133902643}
+  enemies: 0
 --- !u!1 &1541882442
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +955,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 8794994643435272495, guid: bc505d64f916400488e71d39b2758cdd, type: 3}
+  handParent: {fileID: 111579931}
+  hourglass: {fileID: 1460610974}
   currentTurn: 0
+  enemies: 0
+  deckSize: 10
+  maxHandSize: 7
+  chooseActions: 1
+  startIEnumerator: 0
   possibleCardsToAddToDeck:
   - {fileID: 11400000, guid: 343728cf184523c4490c6b82f02b42f0, type: 2}
   - {fileID: 11400000, guid: 50cca6c8e5133e64598596c01d638637, type: 2}
@@ -966,13 +975,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c544d30c4d24ec1498c3a59831799bad, type: 2}
   - {fileID: 11400000, guid: 7a9be05c6d0bd9443a63b9a400e5c24b, type: 2}
   deck: []
-  deckSize: 10
   discard: []
   hand: []
-  maxHandSize: 7
-  selectedCard: -1
   selectedEnemy: {fileID: 0}
-  handParent: {fileID: 111579931}
+  selectedCard: -1
 --- !u!1 &1670885657
 GameObject:
   m_ObjectHideFlags: 0

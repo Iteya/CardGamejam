@@ -6,32 +6,35 @@ using Random = UnityEngine.Random;
 
 public class LevDeck : MonoBehaviour
 {
-    public static LevDeck singleton;
-
-    public GameObject cardPrefab;
-    
     public enum TurnAction
     {
         Player,
         Enemy,
     }
     
-    public TurnAction currentTurn;
-
-    public List<CardBase> possibleCardsToAddToDeck, deck;
+    [Header("Libraries")]
+    public static LevDeck singleton;
+    public GameObject cardPrefab;
+    public Transform handParent;
+    public LevHourglassScript hourglass;
     
+    [Header("Values")]
+    public TurnAction currentTurn;
+    public int enemies;
     public int deckSize;
-
+    public int maxHandSize;
+    public int chooseActions = 0;
+    public int startIEnumerator = 0;
+    
+    [Header("Lists")]
+    public List<CardBase> possibleCardsToAddToDeck, deck;
     public List<CardBase> discard;
     public List<LevCard> hand;
     
-    public int maxHandSize;
-    
+    [Header("")]
+    public EnemyScript selectedEnemy;
     // keep track of current selected card via index
     public int selectedCard = -1; // if -1, stands for no card selected
-    public EnemyScript selectedEnemy;
-
-    public Transform handParent;
 
     private void Awake()
     {
@@ -76,12 +79,19 @@ public class LevDeck : MonoBehaviour
         {
             if (selectedCard != -1 && selectedEnemy != null)
             {
-                selectedEnemy.ChangeHealth(-hand[selectedCard].damage);
-                Destroy(hand[selectedCard].gameObject);
+                if (hourglass.energy - hand[selectedCard].manaCost >= 0) 
+                {
+                    selectedEnemy.ChangeHealth(-hand[selectedCard].damage);
+                    
+                    hourglass.energy -= hand[selectedCard].manaCost;
+                    
+                    Destroy(hand[selectedCard].gameObject);
+                }
+
+                selectedCard = -1;
                 selectedEnemy = null;
             }
         }
     #endregion
-    
     
 }
