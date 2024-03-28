@@ -36,15 +36,14 @@ public class EnemyScript : MonoBehaviour
         singleton = FindObjectOfType<LevDeck>();
         lev = FindObjectOfType<J_LevelManager>();
         player = FindObjectOfType<PlayerScript>();
-        singleton.enemies += 1;
+        singleton.enemies++;
         health = data.health;
         healthBar.SetMaxHealth(health);
     }
-    
-    
 
     private void Update()
     {
+        /*
         if (singleton.chooseActions > 0)
         {
             ChooseActions(energy);
@@ -56,6 +55,7 @@ public class EnemyScript : MonoBehaviour
             Actions();
             singleton.startIEnumerator--;
         }
+        */
         
         if (   (camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).x > transform.position.x - .5f)
             && (camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).x < transform.position.x + .5f)
@@ -81,12 +81,6 @@ public class EnemyScript : MonoBehaviour
         else
         {
             sprite.color = data.color;
-        }
-
-        if (health <= 0)
-        {
-            lev.numEnemiesSpawned -= 1;
-            Destroy(this.gameObject);
         }
     }
     

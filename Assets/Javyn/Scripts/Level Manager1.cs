@@ -15,7 +15,7 @@ public class J_LevelManager : MonoBehaviour
     
     public int numEnemiesSpawned = 0;
     public float currentEnemyWeight;
-    public List<GameObject> enemiesSpawned = new List<GameObject>();
+    public List<GameObject> enemiesSpawned;
 
     private void Start()
     {
@@ -34,13 +34,15 @@ public class J_LevelManager : MonoBehaviour
     {
         if (numEnemiesSpawned == 0)
         {
-            EndScene();
+            // EndScene();
         }
     }
-
+    
+    /*
     private void EndScene()
     {
         Debug.Log("Needs doing.");
         numEnemiesSpawned--;
     }
+    */
 }

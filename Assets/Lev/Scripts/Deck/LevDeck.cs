@@ -23,15 +23,15 @@ public class LevDeck : MonoBehaviour
     public int enemies;
     public int deckSize;
     public int maxHandSize;
-    public int chooseActions = 0;
-    public int startIEnumerator = 0;
+    // public int chooseActions = 0;
+    // public int startIEnumerator = 0;
     
     [Header("Lists")]
     public List<CardBase> possibleCardsToAddToDeck, deck;
     public List<CardBase> discard;
     public List<LevCard> hand;
     
-    [Header("")]
+    [Header("Selected")]
     public EnemyScript selectedEnemy;
     // keep track of current selected card via index
     public int selectedCard = -1; // if -1, stands for no card selected

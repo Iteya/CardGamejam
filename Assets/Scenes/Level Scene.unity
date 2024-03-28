@@ -844,7 +844,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1460610974}
         m_TargetAssemblyTypeName: LevHourglassScript, Assembly-CSharp
-        m_MethodName: EndPlayerTurn
+        m_MethodName: SwitchTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -909,7 +909,6 @@ MonoBehaviour:
   max: 3
   totalText: {fileID: 850449405}
   currentText: {fileID: 133902643}
-  enemies: 0
 --- !u!1 &1541882442
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,8 +960,6 @@ MonoBehaviour:
   enemies: 0
   deckSize: 10
   maxHandSize: 7
-  chooseActions: 1
-  startIEnumerator: 0
   possibleCardsToAddToDeck:
   - {fileID: 11400000, guid: 343728cf184523c4490c6b82f02b42f0, type: 2}
   - {fileID: 11400000, guid: 50cca6c8e5133e64598596c01d638637, type: 2}
@@ -1515,6 +1512,10 @@ PrefabInstance:
     - target: {fileID: 2337789010414502910, guid: 0b2bcdb75d94e4c27a4bbaddcd9bb97b, type: 3}
       propertyPath: gradient.m_NumColorKeys
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4013602979265581670, guid: 0b2bcdb75d94e4c27a4bbaddcd9bb97b, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4517034940224965358, guid: 0b2bcdb75d94e4c27a4bbaddcd9bb97b, type: 3}
       propertyPath: m_LocalPosition.x
