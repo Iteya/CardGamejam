@@ -744,6 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e901413341e4748a98f95ddcb5663fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleton: {fileID: 0}
   spawnPositions:
   - {fileID: 2016789654}
   - {fileID: 1901100042}
@@ -757,6 +758,7 @@ MonoBehaviour:
   numEnemiesSpawned: 0
   currentEnemyWeight: 0
   enemiesSpawned: []
+  spawnedEnemiesScripts: []
 --- !u!1 &1460610968
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,6 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbe9745f755348b7916164a1ba3b014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 1220255737}
   cardPrefab: {fileID: 8794994643435272495, guid: bc505d64f916400488e71d39b2758cdd, type: 3}
   handParent: {fileID: 111579931}
   hourglass: {fileID: 1460610974}

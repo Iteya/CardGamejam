@@ -75,7 +75,10 @@ public class LevDeck : MonoBehaviour
         
         #region EnemyFunctionCall
 
-        currentTurn = levelManager.EnemyAttackFunctions();
+        if (currentTurn == TurnAction.Enemy)
+        {
+            currentTurn = levelManager.EnemyAttackFunctions();
+        }
 
         #endregion
     }

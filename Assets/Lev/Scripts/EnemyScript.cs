@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -76,15 +77,23 @@ public class EnemyScript : MonoBehaviour
         {
             //TODO update selection ux
             sprite.color = Color.yellow;
-            Debug.Log("We need to update the selection communication for enemies.");
+            Debug.Log("We need to update the selection communication for enemies."); // poopy
         }
         else
         {
             sprite.color = data.color;
         }
+
+        if (health <= 0)
+        {
+            Dead();
+        }
     }
-    
-    
+
+    private void Dead()
+    {
+        gameObject.SetActive(false);
+    }
     
     public void ChangeHealth(int amount)
     {
@@ -98,7 +107,7 @@ public class EnemyScript : MonoBehaviour
     {
         int i = 0;
         
-        while (maxEnergy > 1 && i < 2) // why 2 here? and why need a maxEnergy? put this here to remember to ask this in class
+        while (maxEnergy > 1 && i < 2) // if it keeps getting cards with 0 cost, it an only get 2 cards at max
         {
             CardBase chosenAction = data.ActionChoices[Random.Range(0, data.ActionChoices.Count)];
             if (maxEnergy - chosenAction.manaCost > 0)
@@ -113,7 +122,6 @@ public class EnemyScript : MonoBehaviour
 
     public void Actions()
     {
-        Debug.Log("Actions started");
         for (int i = 0; i < actions.Count; i++)
         {
             player.ChangeHealth(-actions[i].damage);

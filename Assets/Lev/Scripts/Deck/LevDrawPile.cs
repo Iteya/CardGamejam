@@ -10,10 +10,8 @@ public class LevDrawPile : MonoBehaviour
 
     public void DrawCard()
     {
-        Debug.Log("First step of draw card!");
         if (data.hand.Count < data.maxHandSize)
         {
-            Debug.Log("Draw Card being called");
             GameObject instantiatedCard = Instantiate(data.cardPrefab, data.handParent);
             LevCard cardScript = instantiatedCard.GetComponent<LevCard>();
 

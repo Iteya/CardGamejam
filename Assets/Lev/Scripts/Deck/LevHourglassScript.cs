@@ -28,9 +28,7 @@ public class LevHourglassScript : MonoBehaviour
     {
         // Checks to see if currentTurn is players turn, if it is, swaps it to Enemy turn
         // If it is not players turn, makes it players turn
-        data.currentTurn = data.currentTurn == LevDeck.TurnAction.Player
-            ? LevDeck.TurnAction.Enemy
-            : LevDeck.TurnAction.Player;
+        data.currentTurn = LevDeck.TurnAction.Enemy;
     }
     
     /*

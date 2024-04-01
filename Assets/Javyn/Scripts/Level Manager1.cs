@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class J_LevelManager : MonoBehaviour
 {
     public LevDeck singleton;
+    public LevHourglassScript hourglass;
     
     public Transform[] spawnPositions;
     
@@ -23,6 +24,7 @@ public class J_LevelManager : MonoBehaviour
     private void Start()
     {
         singleton = FindObjectOfType<LevDeck>();
+        hourglass = FindObjectOfType<LevHourglassScript>();
         
         while (numEnemiesSpawned < enemySpawnLimit && currentEnemyWeight < maxEnemyWeight)
         {
@@ -52,6 +54,7 @@ public class J_LevelManager : MonoBehaviour
     {
         ChooseEnemyActions();
         TheEnemyDoesActions();
+        hourglass.energy = hourglass.max;
         return LevDeck.TurnAction.Player;
     }
 
