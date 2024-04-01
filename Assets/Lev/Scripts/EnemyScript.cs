@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -75,13 +76,12 @@ public class EnemyScript : MonoBehaviour
 
         if (singleton.selectedEnemy == this)
         {
-            //TODO update selection ux
-            sprite.color = Color.yellow;
-            Debug.Log("We need to update the selection communication for enemies."); // poopy
+            //TODO update selection uX
+            transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
         }
         else
         {
-            sprite.color = data.color;
+            transform.localScale = new Vector3(1, 1, 1);
         }
 
         if (health <= 0)
