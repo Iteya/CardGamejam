@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class J_LevelManager : MonoBehaviour
 {
+    public LevDeck singleton;
+    
     public Transform[] spawnPositions;
     
     public int enemySpawnLimit;
@@ -15,10 +17,13 @@ public class J_LevelManager : MonoBehaviour
     
     public int numEnemiesSpawned = 0;
     public float currentEnemyWeight;
-    public List<GameObject> enemiesSpawned = new List<GameObject>();
+    public List<GameObject> enemiesSpawned;
+    public List<EnemyScript> spawnedEnemiesScripts;
 
     private void Start()
     {
+        singleton = FindObjectOfType<LevDeck>();
+        
         while (numEnemiesSpawned < enemySpawnLimit && currentEnemyWeight < maxEnemyWeight)
         {
             int enemySpawned = Random.Range(0, enemyOptions.Length);
@@ -26,21 +31,60 @@ public class J_LevelManager : MonoBehaviour
             enemiesSpawned.Add(enemy);
             numEnemiesSpawned++;
             EnemyScript script = enemy.GetComponent<EnemyScript>();
+            spawnedEnemiesScripts.Add(script);
             currentEnemyWeight += script.weight;
         }
+        
+        
     }
 
     private void Update()
     {
         if (numEnemiesSpawned == 0)
         {
-            EndScene();
+            // EndScene();
         }
     }
 
+    #region EnemyFunctions
+        
+    public LevDeck.TurnAction EnemyAttackFunctions()
+    {
+        ChooseEnemyActions();
+        TheEnemyDoesActions();
+        return LevDeck.TurnAction.Player;
+    }
+
+    private void ChooseEnemyActions()
+    {
+        for (int i = 0, len = spawnedEnemiesScripts.Count; i < len; i++)
+        {
+            spawnedEnemiesScripts[i].ChooseActions(5); // 5 is a random number; placeholder
+        }
+    }
+
+    private void TheEnemyDoesActions()
+    {
+        for (int i = 0, len = spawnedEnemiesScripts.Count; i < len; i++)
+        {
+            EnemyAttackAnimation(enemiesSpawned[i]);
+            spawnedEnemiesScripts[i].Actions();
+        }
+    }
+
+    private void EnemyAttackAnimation(GameObject enemy)
+    {
+        // GIVE AN ATTACK ANIMATION
+        // we could also put this function in EnemyScript.cs if that seems more fitting
+    }
+    
+    #endregion
+    
+    /*
     private void EndScene()
     {
         Debug.Log("Needs doing.");
         numEnemiesSpawned--;
     }
+    */
 }

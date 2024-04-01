@@ -14,6 +14,7 @@ public class LevDeck : MonoBehaviour
     
     [Header("Libraries")]
     public static LevDeck singleton;
+    public J_LevelManager levelManager;
     public GameObject cardPrefab;
     public Transform handParent;
     public LevHourglassScript hourglass;
@@ -23,15 +24,15 @@ public class LevDeck : MonoBehaviour
     public int enemies;
     public int deckSize;
     public int maxHandSize;
-    public int chooseActions = 0;
-    public int startIEnumerator = 0;
+    // public int chooseActions = 0;
+    // public int startIEnumerator = 0;
     
     [Header("Lists")]
     public List<CardBase> possibleCardsToAddToDeck, deck;
     public List<CardBase> discard;
     public List<LevCard> hand;
     
-    [Header("")]
+    [Header("Selected")]
     public EnemyScript selectedEnemy;
     // keep track of current selected card via index
     public int selectedCard = -1; // if -1, stands for no card selected
@@ -64,34 +65,41 @@ public class LevDeck : MonoBehaviour
     {
         #region PlayerFunctionCalls
 
-            if (currentTurn == TurnAction.Player)
-            {
-                Damage();
-            }
+        if (currentTurn == TurnAction.Player)
+        {
+            Damage();
+        }
 
+
+        #endregion
+        
+        #region EnemyFunctionCall
+
+        currentTurn = levelManager.EnemyAttackFunctions();
 
         #endregion
     }
 
     #region PlayerFunctions
 
-        private void Damage()
+    private void Damage()
+    {
+        if (selectedCard != -1 && selectedEnemy != null)
         {
-            if (selectedCard != -1 && selectedEnemy != null)
+            if (hourglass.energy - hand[selectedCard].manaCost >= 0) 
             {
-                if (hourglass.energy - hand[selectedCard].manaCost >= 0) 
-                {
-                    selectedEnemy.ChangeHealth(-hand[selectedCard].damage);
+                selectedEnemy.ChangeHealth(-hand[selectedCard].damage);
                     
-                    hourglass.energy -= hand[selectedCard].manaCost;
+                hourglass.energy -= hand[selectedCard].manaCost;
                     
-                    Destroy(hand[selectedCard].gameObject);
-                }
-
-                selectedCard = -1;
-                selectedEnemy = null;
+                Destroy(hand[selectedCard].gameObject);
             }
+
+            selectedCard = -1;
+            selectedEnemy = null;
         }
+    }
+
     #endregion
     
 }

@@ -36,15 +36,14 @@ public class EnemyScript : MonoBehaviour
         singleton = FindObjectOfType<LevDeck>();
         lev = FindObjectOfType<J_LevelManager>();
         player = FindObjectOfType<PlayerScript>();
-        singleton.enemies += 1;
+        singleton.enemies++;
         health = data.health;
         healthBar.SetMaxHealth(health);
     }
-    
-    
 
     private void Update()
     {
+        /*
         if (singleton.chooseActions > 0)
         {
             ChooseActions(energy);
@@ -56,6 +55,7 @@ public class EnemyScript : MonoBehaviour
             Actions();
             singleton.startIEnumerator--;
         }
+        */
         
         if (   (camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).x > transform.position.x - .5f)
             && (camera.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono).x < transform.position.x + .5f)
@@ -82,12 +82,6 @@ public class EnemyScript : MonoBehaviour
         {
             sprite.color = data.color;
         }
-
-        if (health <= 0)
-        {
-            lev.numEnemiesSpawned -= 1;
-            Destroy(this.gameObject);
-        }
     }
     
     
@@ -104,7 +98,7 @@ public class EnemyScript : MonoBehaviour
     {
         int i = 0;
         
-        while (maxEnergy > 1 && i < 2)
+        while (maxEnergy > 1 && i < 2) // why 2 here? and why need a maxEnergy? put this here to remember to ask this in class
         {
             CardBase chosenAction = data.ActionChoices[Random.Range(0, data.ActionChoices.Count)];
             if (maxEnergy - chosenAction.manaCost > 0)
@@ -117,7 +111,7 @@ public class EnemyScript : MonoBehaviour
         
     }
 
-    void Actions()
+    public void Actions()
     {
         Debug.Log("Actions started");
         for (int i = 0; i < actions.Count; i++)

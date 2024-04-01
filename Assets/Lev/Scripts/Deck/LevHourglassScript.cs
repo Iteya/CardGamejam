@@ -10,17 +10,18 @@ public class LevHourglassScript : MonoBehaviour
     public LevDeck data;
     public int energy, max;
     public TextMeshProUGUI totalText, currentText;
-    public int enemies = 0;
 
     private void Update()
     {
         totalText.text = max.ToString();
         currentText.text = energy.ToString();
+        /*
         if (enemies == 0)
         {
             enemies = data.enemies;
             data.chooseActions = enemies;
         }
+        */
     }
     
     public void SwitchTurn()
@@ -31,7 +32,8 @@ public class LevHourglassScript : MonoBehaviour
             ? LevDeck.TurnAction.Enemy
             : LevDeck.TurnAction.Player;
     }
-
+    
+    /*
     public void EndPlayerTurn()
     {
         if (data.currentTurn == LevDeck.TurnAction.Player)
@@ -51,6 +53,7 @@ public class LevHourglassScript : MonoBehaviour
             data.chooseActions = enemies;
         }
     }
+    */
     
     //I split the EndTurn function (now SwitchTurn) so that we can call it for each specific use case
     //I.e. the hourglass itself will EndPlayerTurn, and EndEnemyTurn will be called by whatever handles enemy turn.
