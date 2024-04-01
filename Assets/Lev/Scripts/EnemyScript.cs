@@ -92,7 +92,7 @@ public class EnemyScript : MonoBehaviour
 
     private void Dead()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
     
     public void ChangeHealth(int amount)

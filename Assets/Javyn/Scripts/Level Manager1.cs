@@ -25,6 +25,8 @@ public class J_LevelManager : MonoBehaviour
     {
         singleton = FindObjectOfType<LevDeck>();
         hourglass = FindObjectOfType<LevHourglassScript>();
+
+        maxEnemyWeight = ButtonSelectorScript.SelectedLevelWeight;
         
         while (numEnemiesSpawned < enemySpawnLimit && currentEnemyWeight < maxEnemyWeight)
         {
