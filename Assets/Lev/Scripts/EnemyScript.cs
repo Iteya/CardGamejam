@@ -98,7 +98,7 @@ public class EnemyScript : MonoBehaviour
     {
         int i = 0;
         
-        while (maxEnergy > 1 && i < 2)
+        while (maxEnergy > 1 && i < 2) // why 2 here? and why need a maxEnergy? put this here to remember to ask this in class
         {
             CardBase chosenAction = data.ActionChoices[Random.Range(0, data.ActionChoices.Count)];
             if (maxEnergy - chosenAction.manaCost > 0)
@@ -111,7 +111,7 @@ public class EnemyScript : MonoBehaviour
         
     }
 
-    void Actions()
+    public void Actions()
     {
         Debug.Log("Actions started");
         for (int i = 0; i < actions.Count; i++)
