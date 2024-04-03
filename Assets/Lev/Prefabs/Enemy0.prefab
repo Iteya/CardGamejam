@@ -106,6 +106,7 @@ MonoBehaviour:
   camera: {fileID: 0}
   sprite: {fileID: 3691321290291464685}
   player: {fileID: 0}
+  indicator: {fileID: 3413419272642601296}
   weight: 0
   health: 0
   energy: 3
@@ -231,6 +232,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ebfd0e5c0b8049b7a1dd874ef9a362d, type: 3}
+--- !u!114 &3413419272642601296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4483946359676984381, guid: 0ebfd0e5c0b8049b7a1dd874ef9a362d, type: 3}
+  m_PrefabInstance: {fileID: 1253350670248344941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbc9e3c732fa4f42b8f920a91e56c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4355507380207319136 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3248525974253274381, guid: 0ebfd0e5c0b8049b7a1dd874ef9a362d, type: 3}

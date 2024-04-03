@@ -39,7 +39,7 @@ public class J_LevelManager : MonoBehaviour
             numEnemiesSpawned++;
         }
         
-        
+        ChooseEnemyActions();
     }
 
     private void Update()
@@ -50,13 +50,14 @@ public class J_LevelManager : MonoBehaviour
         }
     }
 
+    
     #region EnemyFunctions
         
     public LevDeck.TurnAction EnemyAttackFunctions()
     {
-        ChooseEnemyActions();
         TheEnemyDoesActions();
         hourglass.energy = hourglass.max;
+        ChooseEnemyActions();
         return LevDeck.TurnAction.Player;
     }
 
@@ -81,6 +82,7 @@ public class J_LevelManager : MonoBehaviour
     {
         // GIVE AN ATTACK ANIMATION
         // we could also put this function in EnemyScript.cs if that seems more fitting
+        // when they attack, their damage indicator disappears for a while
     }
     
     #endregion

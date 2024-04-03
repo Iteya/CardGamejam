@@ -16,11 +16,12 @@ public class EnemyScript : MonoBehaviour
     public new Camera camera;
     public SpriteRenderer sprite;
     public PlayerScript player;
+    public DamageIndicator indicator;
     
     [Header("Internals")]
     public float weight;
     public int health;
-    public int energy;
+    public int damage;
     
     [Header("Action Variables")]
     public List<CardBase> actions;
@@ -87,6 +88,8 @@ public class EnemyScript : MonoBehaviour
         {
             Dead();
         }
+
+        indicator.damage = damage;
     }
 
     private void Dead()
@@ -105,19 +108,20 @@ public class EnemyScript : MonoBehaviour
 
     public void ChooseActions(int maxEnergy)
     {
-        int i = 0;
         
-        while (maxEnergy > 1 && i < 2) // if it keeps getting cards with 0 cost, it an only get 2 cards at max
+        while (actions.Count < 1) // if it keeps getting cards with 0 cost, it an only get 2 cards at max
         {
-            CardBase chosenAction = data.ActionChoices[Random.Range(0, data.ActionChoices.Count)];
-            if (maxEnergy - chosenAction.manaCost > 0)
+            CardBase chosenAction = data.ActionChoices[Random.Range(0, data.ActionChoices.Count)]; //choose a random action
+            
+            if (maxEnergy - chosenAction.manaCost > 0) //test to see if it has enough energy
             {
-                actions.Add(chosenAction);
+                actions.Add(chosenAction); //solidify choice
+                damage += chosenAction.damage; //add damage amount to action indicator
+                break; //end loop
             }
 
-            i++;
+            
         }
-        
     }
 
     public void Actions()
@@ -127,6 +131,7 @@ public class EnemyScript : MonoBehaviour
             player.ChangeHealth(-actions[i].damage);
         }
         actions.RemoveRange(0, actions.Count);
+        damage = 0;
     }
     
 }
