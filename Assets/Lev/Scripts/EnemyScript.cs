@@ -22,7 +22,6 @@ public class EnemyScript : MonoBehaviour
     public int health;
     public int energy;
     
-    
     [Header("Action Variables")]
     public List<CardBase> actions;
 
@@ -92,6 +91,7 @@ public class EnemyScript : MonoBehaviour
 
     private void Dead()
     {
+        lev.spawnedEnemiesScripts.Remove(this);
         Destroy(gameObject);
     }
     

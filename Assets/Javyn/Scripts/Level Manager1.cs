@@ -19,7 +19,7 @@ public class J_LevelManager : MonoBehaviour
     public int numEnemiesSpawned = 0;
     public float currentEnemyWeight;
     public List<GameObject> enemiesSpawned;
-    public List<EnemyScript> spawnedEnemiesScripts;
+    [HideInInspector] public List<EnemyScript> spawnedEnemiesScripts;
 
     private void Start()
     {
@@ -33,10 +33,10 @@ public class J_LevelManager : MonoBehaviour
             int enemySpawned = Random.Range(0, enemyOptions.Length);
             GameObject enemy = Instantiate(enemyOptions[enemySpawned], spawnPositions[numEnemiesSpawned]);
             enemiesSpawned.Add(enemy);
-            numEnemiesSpawned++;
             EnemyScript script = enemy.GetComponent<EnemyScript>();
             spawnedEnemiesScripts.Add(script);
-            currentEnemyWeight += script.weight;
+            currentEnemyWeight += script.weight; // adding weight to current enemy weight as to not go over     
+            numEnemiesSpawned++;
         }
         
         

@@ -10,7 +10,7 @@ public class LevDrawPile : MonoBehaviour
 
     public void DrawCard()
     {
-        if (data.hand.Count < data.maxHandSize)
+        if (data.hand.Count < data.maxHandSize && data.deck.Count > 0)
         {
             GameObject instantiatedCard = Instantiate(data.cardPrefab, data.handParent);
             LevCard cardScript = instantiatedCard.GetComponent<LevCard>();
