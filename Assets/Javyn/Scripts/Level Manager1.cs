@@ -9,6 +9,7 @@ public class J_LevelManager : MonoBehaviour
 {
     public LevDeck singleton;
     public LevHourglassScript hourglass;
+    public Transform cardsInHandParent;
     
     public Transform[] spawnPositions;
     
@@ -25,6 +26,7 @@ public class J_LevelManager : MonoBehaviour
     {
         singleton = FindObjectOfType<LevDeck>();
         hourglass = FindObjectOfType<LevHourglassScript>();
+        singleton.levelManager = this;
 
         maxEnemyWeight = ButtonSelectorScript.SelectedLevelWeight;
         

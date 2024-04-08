@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,11 +9,16 @@ public class LevDrawPile : MonoBehaviour
 {
     public LevDeck data;
 
+    public void Start()
+    {
+        data = FindObjectOfType<LevDeck>();
+    }
+
     public void DrawCard()
     {
         if (data.hand.Count < data.maxHandSize && data.deck.Count > 0)
         {
-            GameObject instantiatedCard = Instantiate(data.cardPrefab, data.handParent);
+            GameObject instantiatedCard = Instantiate(data.cardPrefab, data.levelManager.cardsInHandParent);
             LevCard cardScript = instantiatedCard.GetComponent<LevCard>();
 
             CardBase drawnCardData = data.deck[0];

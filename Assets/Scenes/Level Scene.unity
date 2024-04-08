@@ -746,6 +746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   singleton: {fileID: 0}
   hourglass: {fileID: 0}
+  cardsInHandParent: {fileID: 111579931}
   spawnPositions:
   - {fileID: 2016789654}
   - {fileID: 1901100042}
@@ -958,8 +959,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 1220255737}
   cardPrefab: {fileID: 8794994643435272495, guid: bc505d64f916400488e71d39b2758cdd, type: 3}
-  handParent: {fileID: 111579931}
-  hourglass: {fileID: 1460610974}
   currentTurn: 0
   enemies: 0
   deckSize: 10

@@ -17,6 +17,7 @@ public class ButtonSelectorScript : MonoBehaviour
     
     public void OpenScene()
     {
+        SelectManager.LevelsVisited += 2;
         SelectedLevelWeight = levelWeight;
         SceneManager.LoadScene("Level Scene");
     }

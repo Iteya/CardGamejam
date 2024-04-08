@@ -11,6 +11,11 @@ public class LevHourglassScript : MonoBehaviour
     public int energy, max;
     public TextMeshProUGUI totalText, currentText;
 
+    private void Start()
+    {
+        data = FindObjectOfType<LevDeck>();
+    }
+
     private void Update()
     {
         totalText.text = max.ToString();

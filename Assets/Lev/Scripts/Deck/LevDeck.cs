@@ -16,8 +16,6 @@ public class LevDeck : MonoBehaviour
     public static LevDeck singleton;
     public J_LevelManager levelManager;
     public GameObject cardPrefab;
-    public Transform handParent;
-    public LevHourglassScript hourglass;
     
     [Header("Values")]
     public TurnAction currentTurn;
@@ -89,11 +87,11 @@ public class LevDeck : MonoBehaviour
     {
         if (selectedCard != -1 && selectedEnemy != null)
         {
-            if (hourglass.energy - hand[selectedCard].manaCost >= 0) 
+            if (levelManager.hourglass.energy - hand[selectedCard].manaCost >= 0) 
             {
                 selectedEnemy.ChangeHealth(-hand[selectedCard].damage);
                     
-                hourglass.energy -= hand[selectedCard].manaCost;
+                levelManager.hourglass.energy -= hand[selectedCard].manaCost;
                     
                 Destroy(hand[selectedCard].gameObject);
             }
