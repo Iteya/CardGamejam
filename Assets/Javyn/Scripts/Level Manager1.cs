@@ -4,6 +4,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class J_LevelManager : MonoBehaviour
 {
@@ -48,7 +49,9 @@ public class J_LevelManager : MonoBehaviour
     {
         if (numEnemiesSpawned == 0)
         {
-            // EndScene();
+            singleton.deck.AddRange(singleton.discard);
+            singleton.discard.Clear();
+            SceneManager.LoadScene("Reward Scene");
         }
     }
 
@@ -57,17 +60,19 @@ public class J_LevelManager : MonoBehaviour
         
     public LevDeck.TurnAction EnemyAttackFunctions()
     {
-        TheEnemyDoesActions();
+        EnemiesTakeExtraDamage();
+        TheEnemyDoesActions(); 
         hourglass.energy = hourglass.max;
         ChooseEnemyActions();
+
         return LevDeck.TurnAction.Player;
     }
-
+    
     private void ChooseEnemyActions()
     {
         for (int i = 0, len = spawnedEnemiesScripts.Count; i < len; i++)
         {
-            spawnedEnemiesScripts[i].ChooseActions(5); // 5 is a random number; placeholder
+            spawnedEnemiesScripts[i].ChooseActions(); // 5 is a random number; placeholder
         }
     }
 
@@ -77,6 +82,28 @@ public class J_LevelManager : MonoBehaviour
         {
             EnemyAttackAnimation(enemiesSpawned[i]);
             spawnedEnemiesScripts[i].Actions();
+        }
+    }
+
+    private void EnemiesTakeExtraDamage()
+    {
+        for (int i = 0, len = spawnedEnemiesScripts.Count; i < len; i++)
+        {
+            if (spawnedEnemiesScripts[i].isPoisoned)
+            {
+                spawnedEnemiesScripts[i].ChangeHealth(-4);
+            }
+
+            if (spawnedEnemiesScripts[i].isFlamed)
+            {
+                spawnedEnemiesScripts[i].ChangeHealth(-4);
+            }
+
+            if (spawnedEnemiesScripts[i].isPoisoned && spawnedEnemiesScripts[i].isFlamed)
+            {
+                spawnedEnemiesScripts[i].ChangeHealth(-4);
+            }
+            
         }
     }
 

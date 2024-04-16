@@ -259,13 +259,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b9f63e34c724cc487cb1b1d1647c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFloor: 0
+  singleton: {fileID: 0}
   grid0: {fileID: 1022891385}
   maxButtons: 6
+  LevelsVisited: 0
   buttonPrefab: {fileID: 3742828498771737337, guid: 99c5441fb3b914fd8b9c19f2a0be979b, type: 3}
   bossButton: {fileID: 1999513539}
   minWeight: 0.5
-  maxWeight: 1
+  maxWeight: 0.55
 --- !u!1 &1022891385
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,12 +785,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   cardPrefab: {fileID: 8794994643435272495, guid: bc505d64f916400488e71d39b2758cdd, type: 3}
-  handParent: {fileID: 0}
-  hourglass: {fileID: 0}
   currentTurn: 0
   enemies: 0
   deckSize: 10
   maxHandSize: 7
+  levels: 0
+  minWeight: 0.5
+  maxWeight: 0.55
+  maxHealth: 50
+  floor: 0
   possibleCardsToAddToDeck:
   - {fileID: 11400000, guid: 343728cf184523c4490c6b82f02b42f0, type: 2}
   - {fileID: 11400000, guid: 50cca6c8e5133e64598596c01d638637, type: 2}

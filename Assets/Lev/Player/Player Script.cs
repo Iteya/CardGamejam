@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -9,18 +10,21 @@ public class PlayerScript : MonoBehaviour
     public int currentHealth;
 
     public HealthBarScript healthBar;
+    public LevDeck singleton;
 
     void Start()
     {
+        singleton = FindObjectOfType<LevDeck>();
+        maxHealth = singleton.maxHealth;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    private void Update()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (currentHealth <= 0)
         {
-            ChangeHealth(-1);
+            SceneManager.LoadScene("Death");
         }
     }
 

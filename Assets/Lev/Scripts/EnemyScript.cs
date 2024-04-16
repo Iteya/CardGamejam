@@ -22,6 +22,7 @@ public class EnemyScript : MonoBehaviour
     public float weight;
     public int health;
     public int damage;
+    public bool isPoisoned, isFlamed;
     
     [Header("Action Variables")]
     public List<CardBase> actions;
@@ -96,6 +97,7 @@ public class EnemyScript : MonoBehaviour
     {
         lev.spawnedEnemiesScripts.Remove(this);
         Destroy(gameObject);
+        lev.numEnemiesSpawned--;
     }
     
     public void ChangeHealth(int amount)
@@ -106,30 +108,16 @@ public class EnemyScript : MonoBehaviour
     }
 
 
-    public void ChooseActions(int maxEnergy)
+    public void ChooseActions()
     {
-        
-        while (actions.Count < 1) // if it keeps getting cards with 0 cost, it an only get 2 cards at max
-        {
-            CardBase chosenAction = data.ActionChoices[Random.Range(0, data.ActionChoices.Count)]; //choose a random action
-            
-            if (maxEnergy - chosenAction.manaCost > 0) //test to see if it has enough energy
-            {
-                actions.Add(chosenAction); //solidify choice
-                damage += chosenAction.damage; //add damage amount to action indicator
-                break; //end loop
-            }
-
-            
-        }
+        CardBase chosenAction = data.ActionChoices[Random.Range(0, data.ActionChoices.Count)]; //choose a random action
+        actions.Add(chosenAction); //solidify choice
+        damage += chosenAction.damage; //add damage amount to action indicator
     }
 
     public void Actions()
     {
-        for (int i = 0; i < actions.Count; i++)
-        {
-            player.ChangeHealth(-actions[i].damage);
-        }
+        player.ChangeHealth(-actions[0].damage);
         actions.RemoveRange(0, actions.Count);
         damage = 0;
     }

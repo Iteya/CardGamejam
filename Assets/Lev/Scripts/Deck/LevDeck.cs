@@ -22,6 +22,11 @@ public class LevDeck : MonoBehaviour
     public int enemies;
     public int deckSize;
     public int maxHandSize;
+    public int levels;
+    public float minWeight;
+    public float maxWeight;
+    public int maxHealth;
+    public int floor;
     // public int chooseActions = 0;
     // public int startIEnumerator = 0;
     
@@ -90,6 +95,16 @@ public class LevDeck : MonoBehaviour
             if (levelManager.hourglass.energy - hand[selectedCard].manaCost >= 0) 
             {
                 selectedEnemy.ChangeHealth(-hand[selectedCard].damage);
+
+                if (hand[selectedCard].data.type == CardType.Fire)
+                {
+                    selectedEnemy.isFlamed = true;
+                }
+                
+                if (hand[selectedCard].data.type == CardType.Poison)
+                {
+                    selectedEnemy.isPoisoned = true;
+                }
                     
                 levelManager.hourglass.energy -= hand[selectedCard].manaCost;
                     

@@ -47,26 +47,5 @@ public class Card : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, -1000, transform.position.z);
         }
-        
-        /*
-        if ((Input.mousePosition.x > transform.position.x - 50 && Input.mousePosition.x < transform.position.x + 50) && (Input.mousePosition.y > transform.position.y - 75 && Input.mousePosition.y < transform.position.y + 75))
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                singleton.selected = this;
-            }
-        }
-        
-    
-        if (singleton.selected == this)
-        {
-            glow.color = new Color(1, 1, 0, 1);
-        }
-
-        else
-        {
-            glow.color = new Color(0, 0, 0, 0);
-        }
-        */
     }
 }

@@ -5,21 +5,25 @@ using UnityEngine.UI;
 
 public class SelectManager : MonoBehaviour
 {
-    public int currentFloor;
+    public LevDeck singleton;
     
     public GameObject grid0;
     
     public int maxButtons;
-    public static int LevelsVisited = 0;
+    [SerializeField] 
+    public int LevelsVisited;
     public GameObject buttonPrefab;
     public GameObject bossButton;
 
-    [Range(0f, 1f)] public float minWeight;
-    [Range(0f, 1f)] public float maxWeight;
+    public float minWeight;
+    public float maxWeight;
     
     private void Awake()
     {
         bossButton.SetActive(false); // Disabling boss button so can't see it until every level cleared 
+        singleton = FindObjectOfType<LevDeck>();
+        LevelsVisited = singleton.levels;
+        maxWeight = singleton.maxWeight;
         
         for (int i = 0; i < LevelsVisited; i++)
         {
